@@ -1,15 +1,21 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
-const Post = (props) => {
+const Post = () => {
 
-    const {id, userId, title, body} = props;
+  const posts = useSelector((state) => state.profile.posts);
+  console.log(posts)
+  const {profileName, profileTag, profileImg} = useSelector((state) => state.profile)
 
   return (
     <div>
-        <p>user{userId} @user{userId}</p>
-        <p>11/11/2011</p>
-        <p>{body}</p>
-
+        {posts.map((post, i) => (
+          <div key={i}>
+            <p>{profileName} @{profileTag}</p>
+            <p>{post.postDate}</p>
+            <p>{post.postBody}</p>
+          </div>
+        ))}
     </div>
   )
 }

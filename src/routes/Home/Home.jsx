@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import NewPost from '../../components/NewPost.jsx'
 import PostList from '../../components/PostList.jsx'
 
-const Home = ({users}) => {
+const Home = () => {
 
   const {profileName, profileTag, profileImg} = useSelector((state) => state.profile);
 
@@ -11,7 +11,7 @@ const Home = ({users}) => {
     <div style={profileName ? {display: 'block'} : {display: 'none'} }>
         <h1>Home</h1>
         <NewPost />
-        <PostList users={users}/>
+        <PostList />
     </div>
   )
 }

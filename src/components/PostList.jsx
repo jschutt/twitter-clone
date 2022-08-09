@@ -1,12 +1,16 @@
 import React from 'react'
 import Post from './Post.jsx'
+import { useSelector } from 'react-redux'
 
-const PostList = ({users}) => {
+const PostList = () => {
+
+  const posts = useSelector((state) => state.profile.posts)
+
   return (
     <div>
       <h2>PostList</h2>
-        {users.map((post, i) => 
-            <Post key={i} {...post}/>
+        {posts.map((i) => 
+            <Post key={i} />
           )}
     </div>
   )

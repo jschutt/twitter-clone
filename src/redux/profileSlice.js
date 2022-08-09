@@ -17,10 +17,20 @@ const profileSlice = createSlice({
                 profileTag: "",
                 profileImg: ""
             },
+        posts: [
+            {
+                postId: 1,
+                postBody: "test",
+                postDate: "11/11/2011"
+            },
+        ],
         status: null
     },
     reducers: {
-
+        addPost: (state, action) => {
+            state.posts = state.posts.concat(action.payload)
+            
+        }
     },
     extraReducers: {
         [getProfile.pending]: (state, action) => {

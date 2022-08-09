@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const NewPost = () => {
 
-  const profile = useSelector((state) => state.profile);
+  const {profileName, profileTag, profileImg} = useSelector((state) => state.profile);
 
     const {postText, setPostText} = useState("");
 
@@ -13,11 +13,10 @@ const NewPost = () => {
         setPostText(post)
     }
 
-    console.log(profile.profileName)
-
   return (
     <div>
-        <p>{profile.profileName}</p>
+      <img src={profileImg} alt="profile image" />
+        <p>{profileName}</p>
         <textarea name="postText" id="postText" cols="30" rows="10" ></textarea>
         <button>Tweet</button>
     </div>
